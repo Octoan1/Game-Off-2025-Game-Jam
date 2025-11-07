@@ -1,0 +1,155 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds0xw4puqs0nb"]
+
+[ext_resource type="Script" uid="uid://b32ju65lh63cf" path="res://animated_pause_button.gd" id="2_nwcfo"]
+
+[sub_resource type="Animation" id="Animation_05uyy"]
+resource_name = "hover_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1.353256, 1.353256, 1.353256, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p81d2"]
+resource_name = "hover_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.353256, 1.353256, 1.353256, 1), Color(1.353256, 1.353256, 1.353256, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nwcfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nc7s"]
+_data = {
+&"RESET": SubResource("Animation_nwcfo"),
+&"hover_in": SubResource("Animation_05uyy"),
+&"hover_out": SubResource("Animation_p81d2")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.36078432)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+position = Vector2(489.00003, 646)
+scale = Vector2(3.1333342, 5.3666654)
+color = Color(0, 0, 0, 0.79607844)
+polygon = PackedVector2Array(0, 0, -60, 0, -120, -120, -60, -120)
+uv = PackedVector2Array(-247.89987, -124.1698, -187.89987, 24.012024, -117.89987, 24.012024, -188.80899, -127.80617)
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="TextureButton" parent="Control2"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 84.0
+offset_right = 1146.0
+offset_bottom = 164.0
+script = ExtResource("2_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="Control2/ResumeButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25858736, 0.64207804, 0.96178025, 0.58431375)
+
+[node name="Label" type="Label" parent="Control2/ResumeButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 207.0
+offset_top = -11.0
+offset_right = 269.0
+offset_bottom = 12.0
+grow_vertical = 2
+text = "Resume"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control2/ResumeButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_2nc7s")
+}
+
+[node name="ResumeButton2" type="TextureButton" parent="Control2"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 0
+offset_left = 183.0
+offset_top = 208.0
+offset_right = 383.0
+offset_bottom = 288.0
+
+[node name="Label" type="Label" parent="Control2/ResumeButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[connection signal="mouse_entered" from="Control2/ResumeButton" to="Control2/ResumeButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control2/ResumeButton" to="Control2/ResumeButton" method="_on_mouse_exited"]

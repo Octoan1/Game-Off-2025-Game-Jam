@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds0xw4puqs0nb"]
+[gd_scene load_steps=9 format=3 uid="uid://wn4yekn8jfxs"]
 
+[ext_resource type="AudioStream" uid="uid://bsvqs0mkho7o2" path="res://scroll_click.wav" id="2_05uyy"]
 [ext_resource type="Script" uid="uid://b32ju65lh63cf" path="res://animated_pause_button.gd" id="2_nwcfo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdmo1"]
@@ -120,18 +121,18 @@ color = Color(0, 0, 0, 0.36078432)
 position = Vector2(489.00003, 646)
 scale = Vector2(3.1333342, 5.3666654)
 color = Color(0, 0, 0, 0.79607844)
-polygon = PackedVector2Array(0, 0, -60, 0, -120, -120, -60, -120)
+polygon = PackedVector2Array(0, 0.5, -60, 0.5, -120, -120.5, -60, -120.5)
 uv = PackedVector2Array(-247.89987, -124.1698, -187.89987, 24.012024, -117.89987, 24.012024, -188.80899, -127.80617)
 
-[node name="ButtonBox" type="Control" parent="."]
-layout_mode = 3
+[node name="ButtonBox" type="Control" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="ButtonBox"]
+[node name="ResumeButton" type="Button" parent="Control/ButtonBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.157
@@ -143,37 +144,36 @@ offset_bottom = 7.0799866
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
 script = ExtResource("2_nwcfo")
 
-[node name="ColorRect" type="ColorRect" parent="ButtonBox/ResumeButton"]
+[node name="ColorRect" type="ColorRect" parent="Control/ButtonBox/ResumeButton"]
 modulate = Color(1.353256, 1.353256, 1.353256, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 7.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25882354, 0.6431373, 0.94509804, 0.58431375)
 
-[node name="CenterContainer" type="CenterContainer" parent="ButtonBox/ResumeButton"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/ButtonBox/ResumeButton"]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 1.9999924
-offset_right = 286.0
-offset_bottom = 63.999992
+offset_left = 189.0
+offset_right = 284.0
+offset_bottom = 61.999992
 
-[node name="Label" type="Label" parent="ButtonBox/ResumeButton/CenterContainer"]
+[node name="Label" type="Label" parent="Control/ButtonBox/ResumeButton/CenterContainer"]
 layout_mode = 2
 text = "Resume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonBox/ResumeButton"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ButtonBox/ResumeButton"]
 libraries = {
 &"": SubResource("AnimationLibrary_2nc7s")
 }
 
-[node name="OptionsButton" type="Button" parent="ButtonBox"]
+[node name="OptionsButton" type="Button" parent="Control/ButtonBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.147
@@ -185,37 +185,37 @@ offset_bottom = 109.07999
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nwcfo")
 script = ExtResource("2_nwcfo")
 
-[node name="ColorRect" type="ColorRect" parent="ButtonBox/OptionsButton"]
+[node name="ColorRect" type="ColorRect" parent="Control/ButtonBox/OptionsButton"]
 modulate = Color(1.353256, 1.353256, 1.353256, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 7.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25858736, 0.64207804, 0.96178025, 0.58431375)
 
-[node name="CenterContainer" type="CenterContainer" parent="ButtonBox/OptionsButton"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/ButtonBox/OptionsButton"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 8.0
-offset_right = 318.0
-offset_bottom = 62.0
+offset_left = 231.0
+offset_top = 6.0
+offset_right = 316.0
+offset_bottom = 60.0
 
-[node name="Label" type="Label" parent="ButtonBox/OptionsButton/CenterContainer"]
+[node name="Label" type="Label" parent="Control/ButtonBox/OptionsButton/CenterContainer"]
 layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonBox/OptionsButton"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ButtonBox/OptionsButton"]
 libraries = {
 &"": SubResource("AnimationLibrary_2nc7s")
 }
 
-[node name="QuitButton" type="Button" parent="ButtonBox"]
+[node name="QuitButton" type="Button" parent="Control/ButtonBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.147
@@ -227,39 +227,43 @@ offset_bottom = 211.07999
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
 script = ExtResource("2_nwcfo")
 
-[node name="ColorRect" type="ColorRect" parent="ButtonBox/QuitButton"]
+[node name="ColorRect" type="ColorRect" parent="Control/ButtonBox/QuitButton"]
 modulate = Color(1.353256, 1.353256, 1.353256, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.25858736, 0.64207804, 0.96178025, 0.58431375)
 
-[node name="CenterContainer" type="CenterContainer" parent="ButtonBox/QuitButton"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/ButtonBox/QuitButton"]
 layout_mode = 0
-offset_left = 263.0
-offset_top = 10.0
-offset_right = 340.0
-offset_bottom = 60.0
+offset_left = 259.0
+offset_top = 8.0
+offset_right = 336.0
+offset_bottom = 58.0
 
-[node name="Label" type="Label" parent="ButtonBox/QuitButton/CenterContainer"]
+[node name="Label" type="Label" parent="Control/ButtonBox/QuitButton/CenterContainer"]
 layout_mode = 2
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ButtonBox/QuitButton"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ButtonBox/QuitButton"]
 libraries = {
 &"": SubResource("AnimationLibrary_2nc7s")
 }
 
-[connection signal="mouse_entered" from="ButtonBox/ResumeButton" to="ButtonBox/ResumeButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ButtonBox/ResumeButton" to="ButtonBox/ResumeButton" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="ButtonBox/OptionsButton" to="ButtonBox/OptionsButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ButtonBox/OptionsButton" to="ButtonBox/OptionsButton" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="ButtonBox/QuitButton" to="ButtonBox/QuitButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ButtonBox/QuitButton" to="ButtonBox/QuitButton" method="_on_mouse_exited"]
+[node name="ScrollClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_05uyy")
+volume_db = -10.198
+
+[connection signal="mouse_entered" from="Control/ButtonBox/ResumeButton" to="Control/ButtonBox/ResumeButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ButtonBox/ResumeButton" to="Control/ButtonBox/ResumeButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Control/ButtonBox/OptionsButton" to="Control/ButtonBox/OptionsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ButtonBox/OptionsButton" to="Control/ButtonBox/OptionsButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Control/ButtonBox/QuitButton" to="Control/ButtonBox/QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ButtonBox/QuitButton" to="Control/ButtonBox/QuitButton" method="_on_mouse_exited"]

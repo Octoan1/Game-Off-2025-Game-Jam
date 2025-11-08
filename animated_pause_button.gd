@@ -5,7 +5,6 @@ extends Button
 @onready var anim = $AnimationPlayer
 @onready var scroll_click: AudioStreamPlayer = $"../../../ScrollClick"
 
-
 func _ready():
 	highlight.modulate.a = 0
 	label.scale = Vector2.ONE

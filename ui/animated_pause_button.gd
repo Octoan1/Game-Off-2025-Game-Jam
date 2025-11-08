@@ -5,6 +5,8 @@ extends Button
 @onready var anim = $AnimationPlayer
 @onready var scroll_click: AudioStreamPlayer = $"../../../ScrollClick"
 
+signal b_pressed
+
 func _ready():
 	highlight.modulate.a = 0
 	label.scale = Vector2.ONE
@@ -15,3 +17,6 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	anim.play("hover_out")
+
+func _on_pressed():
+	emit_signal("b_pressed")

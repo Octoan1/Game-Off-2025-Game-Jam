@@ -9,6 +9,7 @@ func _physics_process(_delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var horizontal_direction := Input.get_axis("move_left", "move_right")
 	var vertical_direction := Input.get_axis("move_up", "move_down")
+	
 	if horizontal_direction or vertical_direction:
 		velocity.x = horizontal_direction * SPEED
 		velocity.y = vertical_direction * SPEED

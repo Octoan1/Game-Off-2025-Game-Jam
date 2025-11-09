@@ -1,0 +1,334 @@
+[gd_scene load_steps=9 format=3 uid="uid://p872ilbintsy"]
+
+[ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
+[ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://Locations/room_exit.gd" id="2_8as44"]
+[ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="3_ip1s6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ip1s6"]
+font_size = 80
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8as44"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agu4g"]
+albedo_color = Color(0.44313726, 0.62352943, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ip1s6"]
+material = SubResource("StandardMaterial3D_agu4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agu4g"]
+
+[node name="MapLocationTest" type="Node2D"]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="WorldMap" parent="UI" instance=ExtResource("3_ip1s6")]
+unique_name_in_owner = true
+z_index = 1
+
+[node name="LeftRoomLabel" type="Label" parent="UI"]
+offset_left = 40.0
+offset_top = 247.0
+offset_right = 420.0
+offset_bottom = 357.0
+text = "Left room"
+label_settings = SubResource("LabelSettings_ip1s6")
+
+[node name="RightRoomLabel" type="Label" parent="UI"]
+offset_left = 1724.0
+offset_top = 252.0
+offset_right = 2104.0
+offset_bottom = 362.0
+text = "right room"
+label_settings = SubResource("LabelSettings_ip1s6")
+
+[node name="UpperRoomLabel" type="Label" parent="UI"]
+offset_left = 901.0
+offset_top = -670.0
+offset_right = 1315.0
+offset_bottom = -560.0
+text = "upper room"
+label_settings = SubResource("LabelSettings_ip1s6")
+
+[node name="LowerRoomLabel" type="Label" parent="UI"]
+offset_left = 913.0
+offset_top = 1308.0
+offset_right = 1327.0
+offset_bottom = 1418.0
+text = "lower room"
+label_settings = SubResource("LabelSettings_ip1s6")
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Player" parent="Objects" instance=ExtResource("1_agu4g")]
+unique_name_in_owner = true
+position = Vector2(563, 310)
+
+[node name="Camera2D" type="Camera2D" parent="Objects/Player"]
+
+[node name="SampleRoomLeft" type="Node2D" parent="Objects"]
+
+[node name="Wall" type="Node2D" parent="Objects/SampleRoomLeft"]
+position = Vector2(1150, 326)
+scale = Vector2(1.0799956, 37.64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLeft/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLeft/Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLeft/Wall/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall2" type="Node2D" parent="Objects/SampleRoomLeft"]
+position = Vector2(9, 163)
+scale = Vector2(1.0799956, 21.759998)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLeft/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLeft/Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLeft/Wall2/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall3" type="Node2D" parent="Objects/SampleRoomLeft"]
+position = Vector2(573.00006, 641.99994)
+scale = Vector2(65.098465, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLeft/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLeft/Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLeft/Wall3/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall4" type="Node2D" parent="Objects/SampleRoomLeft"]
+position = Vector2(587.00006, -3)
+scale = Vector2(63.538467, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLeft/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLeft/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLeft/Wall4/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="RoomExit" type="Node2D" parent="Objects/SampleRoomLeft"]
+position = Vector2(6.9999995, 508.00003)
+scale = Vector2(1, 14.56)
+script = ExtResource("2_8as44")
+
+[node name="Area2D" type="Area2D" parent="Objects/SampleRoomLeft/RoomExit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLeft/RoomExit/Area2D"]
+shape = SubResource("RectangleShape2D_agu4g")
+
+[node name="SampleRoomRight" type="Node2D" parent="Objects"]
+position = Vector2(1689, 0)
+
+[node name="Wall" type="Node2D" parent="Objects/SampleRoomRight"]
+position = Vector2(1150, 326)
+scale = Vector2(1.0799956, 37.64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomRight/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomRight/Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomRight/Wall/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall2" type="Node2D" parent="Objects/SampleRoomRight"]
+position = Vector2(9, 163)
+scale = Vector2(1.0799956, 21.759998)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomRight/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomRight/Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomRight/Wall2/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall3" type="Node2D" parent="Objects/SampleRoomRight"]
+position = Vector2(573.00006, 641.99994)
+scale = Vector2(65.098465, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomRight/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomRight/Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomRight/Wall3/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall4" type="Node2D" parent="Objects/SampleRoomRight"]
+position = Vector2(587.00006, -3)
+scale = Vector2(63.538467, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomRight/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomRight/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomRight/Wall4/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="RoomExit" type="Node2D" parent="Objects/SampleRoomRight"]
+position = Vector2(6.9999995, 508.00003)
+scale = Vector2(1, 14.56)
+script = ExtResource("2_8as44")
+
+[node name="Area2D" type="Area2D" parent="Objects/SampleRoomRight/RoomExit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomRight/RoomExit/Area2D"]
+shape = SubResource("RectangleShape2D_agu4g")
+
+[node name="SampleRoomLower" type="Node2D" parent="Objects"]
+position = Vector2(865, 1071)
+
+[node name="Wall" type="Node2D" parent="Objects/SampleRoomLower"]
+position = Vector2(1150, 326)
+scale = Vector2(1.0799956, 37.64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLower/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLower/Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLower/Wall/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall2" type="Node2D" parent="Objects/SampleRoomLower"]
+position = Vector2(9, 163)
+scale = Vector2(1.0799956, 21.759998)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLower/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLower/Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLower/Wall2/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall3" type="Node2D" parent="Objects/SampleRoomLower"]
+position = Vector2(573.00006, 641.99994)
+scale = Vector2(65.098465, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLower/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLower/Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLower/Wall3/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall4" type="Node2D" parent="Objects/SampleRoomLower"]
+position = Vector2(587.00006, -3)
+scale = Vector2(63.538467, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomLower/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLower/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomLower/Wall4/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="RoomExit" type="Node2D" parent="Objects/SampleRoomLower"]
+position = Vector2(6.9999995, 508.00003)
+scale = Vector2(1, 14.56)
+script = ExtResource("2_8as44")
+
+[node name="Area2D" type="Area2D" parent="Objects/SampleRoomLower/RoomExit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLower/RoomExit/Area2D"]
+shape = SubResource("RectangleShape2D_agu4g")
+
+[node name="SampleRoomUpper" type="Node2D" parent="Objects"]
+position = Vector2(861, -923)
+
+[node name="Wall" type="Node2D" parent="Objects/SampleRoomUpper"]
+position = Vector2(1150, 326)
+scale = Vector2(1.0799956, 37.64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomUpper/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomUpper/Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomUpper/Wall/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall2" type="Node2D" parent="Objects/SampleRoomUpper"]
+position = Vector2(9, 163)
+scale = Vector2(1.0799956, 21.759998)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomUpper/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomUpper/Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomUpper/Wall2/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall3" type="Node2D" parent="Objects/SampleRoomUpper"]
+position = Vector2(573.00006, 641.99994)
+scale = Vector2(65.098465, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomUpper/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomUpper/Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomUpper/Wall3/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall4" type="Node2D" parent="Objects/SampleRoomUpper"]
+position = Vector2(587.00006, -3)
+scale = Vector2(63.538467, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoomUpper/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomUpper/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoomUpper/Wall4/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="RoomExit" type="Node2D" parent="Objects/SampleRoomUpper"]
+position = Vector2(6.9999995, 508.00003)
+scale = Vector2(1, 14.56)
+script = ExtResource("2_8as44")
+
+[node name="Area2D" type="Area2D" parent="Objects/SampleRoomUpper/RoomExit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomUpper/RoomExit/Area2D"]
+shape = SubResource("RectangleShape2D_agu4g")
+
+[connection signal="area_entered" from="Objects/SampleRoomLeft/RoomExit/Area2D" to="Objects/SampleRoomLeft/RoomExit" method="area_entered"]
+[connection signal="body_entered" from="Objects/SampleRoomLeft/RoomExit/Area2D" to="Objects/SampleRoomLeft/RoomExit" method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Objects/SampleRoomRight/RoomExit/Area2D" to="Objects/SampleRoomRight/RoomExit" method="area_entered"]
+[connection signal="body_entered" from="Objects/SampleRoomRight/RoomExit/Area2D" to="Objects/SampleRoomRight/RoomExit" method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Objects/SampleRoomLower/RoomExit/Area2D" to="Objects/SampleRoomLower/RoomExit" method="area_entered"]
+[connection signal="body_entered" from="Objects/SampleRoomLower/RoomExit/Area2D" to="Objects/SampleRoomLower/RoomExit" method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Objects/SampleRoomUpper/RoomExit/Area2D" to="Objects/SampleRoomUpper/RoomExit" method="area_entered"]
+[connection signal="body_entered" from="Objects/SampleRoomUpper/RoomExit/Area2D" to="Objects/SampleRoomUpper/RoomExit" method="_on_area_2d_body_entered"]

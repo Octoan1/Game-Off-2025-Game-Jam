@@ -21,7 +21,8 @@ folder_colors={
 "res://Assets/": "orange",
 "res://Entities/": "green",
 "res://Locations/": "pink",
-"res://Systems/": "purple"
+"res://Systems/": "purple",
+"res://UI/": "red"
 }
 
 [input]

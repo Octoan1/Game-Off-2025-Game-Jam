@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://p872ilbintsy"]
+
+[ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
+[ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://Locations/room_exit.gd" id="2_8as44"]
+[ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="3_ip1s6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8as44"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agu4g"]
+albedo_color = Color(0.44313726, 0.62352943, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ip1s6"]
+material = SubResource("StandardMaterial3D_agu4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agu4g"]
+
+[node name="MapLocationTest" type="Node2D"]
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Player" parent="Objects" instance=ExtResource("1_agu4g")]
+unique_name_in_owner = true
+position = Vector2(563, 310)
+
+[node name="SampleRoom" type="Node2D" parent="Objects"]
+
+[node name="Wall" type="Node2D" parent="Objects/SampleRoom"]
+position = Vector2(1150, 326)
+scale = Vector2(1.0799956, 37.64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoom/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoom/Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoom/Wall/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall2" type="Node2D" parent="Objects/SampleRoom"]
+position = Vector2(9, 163)
+scale = Vector2(1.0799956, 21.759998)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoom/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoom/Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoom/Wall2/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall3" type="Node2D" parent="Objects/SampleRoom"]
+position = Vector2(573.00006, 641.99994)
+scale = Vector2(65.098465, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoom/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoom/Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoom/Wall3/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="Wall4" type="Node2D" parent="Objects/SampleRoom"]
+position = Vector2(587.00006, -3)
+scale = Vector2(63.538467, -1.2278467)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/SampleRoom/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoom/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_8as44")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Objects/SampleRoom/Wall4/StaticBody2D"]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ip1s6")
+
+[node name="RoomExit" type="Node2D" parent="Objects"]
+position = Vector2(6.9999995, 508.00003)
+scale = Vector2(1, 14.56)
+script = ExtResource("2_8as44")
+
+[node name="Area2D" type="Area2D" parent="Objects/RoomExit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/RoomExit/Area2D"]
+shape = SubResource("RectangleShape2D_agu4g")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="WorldMap" parent="UI" instance=ExtResource("3_ip1s6")]
+unique_name_in_owner = true
+
+[connection signal="area_entered" from="Objects/RoomExit/Area2D" to="Objects/RoomExit" method="area_entered"]
+[connection signal="body_entered" from="Objects/RoomExit/Area2D" to="Objects/RoomExit" method="_on_area_2d_body_entered"]

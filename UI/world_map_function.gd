@@ -5,11 +5,18 @@ signal lower_location
 signal right_location
 signal left_location
 signal up_location
+signal release_player
+signal confirmation
 
-
+@onready
+var confirmation_system = %PlayerConfirm
 
 func _ready():
 	self.hide()
+	confirmation_system.connect("confirm_signal", confirmed)
+	confirmation_system.connect("cancel_signal", cancelled)
+	
+
 
 	# move player / camera to that location on the map OR
 	# load the room scene 
@@ -37,3 +44,11 @@ func up_button_pressed() -> void:
 	emit_signal("up_location")
 	print("up button pressed")
 	
+
+func confirmed():
+	self.show()
+	emit_signal("confirmation")
+
+func cancelled():
+	self.hide()
+	emit_signal("release_player")

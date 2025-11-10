@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://p872ilbintsy"]
+[gd_scene load_steps=10 format=3 uid="uid://p872ilbintsy"]
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
 [ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://Locations/room_exit.gd" id="2_8as44"]
+[ext_resource type="PackedScene" uid="uid://c8bevoq43dhut" path="res://UI/player_confirm.tscn" id="2_xre13"]
 [ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="3_ip1s6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip1s6"]
@@ -23,7 +24,6 @@ material = SubResource("StandardMaterial3D_agu4g")
 
 [node name="WorldMap" parent="UI" instance=ExtResource("3_ip1s6")]
 unique_name_in_owner = true
-z_index = 1
 
 [node name="LeftRoomLabel" type="Label" parent="UI"]
 offset_left = 40.0
@@ -56,6 +56,9 @@ offset_right = 1327.0
 offset_bottom = 1418.0
 text = "lower room"
 label_settings = SubResource("LabelSettings_ip1s6")
+
+[node name="PlayerConfirm" parent="UI" instance=ExtResource("2_xre13")]
+unique_name_in_owner = true
 
 [node name="Objects" type="Node" parent="."]
 

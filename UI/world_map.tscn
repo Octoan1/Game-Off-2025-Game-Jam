@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpw71rsl8qqjv"]
+[gd_scene load_steps=8 format=3 uid="uid://bpw71rsl8qqjv"]
 
 [ext_resource type="Texture2D" uid="uid://bfj04o304clea" path="res://World_map_placeholder.jpg" id="1_fv6my"]
 [ext_resource type="Script" uid="uid://dvpsciytwaebh" path="res://UI/world_map_function.gd" id="2_47qr1"]
+[ext_resource type="Script" uid="uid://llk80dnx4yyo" path="res://UI/map_exit_confirmation.gd" id="3_47qr1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deu6t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -114,6 +115,71 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_r63r8")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_4ojr4")
 theme_override_styles/focus = SubResource("StyleBoxFlat_vv781")
 
+[node name="Confirmation" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_47qr1")
+
+[node name="Label" type="Label" parent="Confirmation"]
+modulate = Color(0.8564939, 3.657937e-06, 8.663535e-07, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -30.0
+offset_right = 162.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You can only enter one area per time slot.
+Are you sure you want to go here?"
+
+[node name="ConfirmButton" type="Button" parent="Confirmation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = 35.0
+offset_right = -60.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8252537, 0.8539914)
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="Confirmation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = 35.0
+offset_right = 126.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8252537, 0.8539914)
+text = "Cancel"
+
 [connection signal="pressed" from="Map/ButtonLower" to="." method="lower_button_pressed"]
 [connection signal="pressed" from="Map/ButtonLower" to="Map" method="lower_button_pressed"]
 [connection signal="pressed" from="Map/ButtonRight" to="." method="right_button_pressed"]
@@ -122,3 +188,5 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vv781")
 [connection signal="pressed" from="Map/ButtonLeft" to="Map" method="left_button_pressed"]
 [connection signal="pressed" from="Map/ButtonUp" to="." method="up_button_pressed"]
 [connection signal="pressed" from="Map/ButtonUp" to="Map" method="up_button_pressed"]
+[connection signal="pressed" from="Confirmation/ConfirmButton" to="Confirmation" method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Confirmation/CancelButton" to="Confirmation" method="_on_cancel_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5514kb3ymx26"]
+
+[ext_resource type="Texture2D" uid="uid://kuvwi1loj3ch" path="res://IMG_0784_Original.jpg" id="1_d2w3i"]
+[ext_resource type="PackedScene" uid="uid://d4apw8qbtea6u" path="res://Dialogue/actionable.tscn" id="1_jn5u5"]
+[ext_resource type="Resource" uid="uid://bhcpv7l0k64i4" path="res://Dialogue/sample_dialogue.dialogue" id="2_d2w3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn5u5"]
+size = Vector2(42.74079, 63.556717)
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(754.9999, 513.91626)
+scale = Vector2(0.041334603, 0.0413346)
+texture = ExtResource("1_d2w3i")
+
+[node name="Actionable" parent="." instance=ExtResource("1_jn5u5")]
+dialogue_resource = ExtResource("2_d2w3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(-8.0703125, -6.5527344)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_jn5u5")

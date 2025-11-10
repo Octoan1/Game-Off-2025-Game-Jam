@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2fn11mxldwlv"]
+[gd_scene load_steps=4 format=3 uid="uid://d2fn11mxldwlv"]
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_50h31"]
 [ext_resource type="PackedScene" uid="uid://s88m3mdvusde" path="res://Entities/Wall/wall.tscn" id="2_och5p"]
+[ext_resource type="PackedScene" uid="uid://bchxmlytwq2ik" path="res://ui/pause_menu/pause_menu.tscn" id="3_n75gg"]
 
 [node name="Main" type="Node2D"]
 
@@ -11,3 +12,5 @@ position = Vector2(392, 187)
 [node name="Wall" parent="." instance=ExtResource("2_och5p")]
 position = Vector2(661, 184)
 scale = Vector2(7.68, 7.68)
+
+[node name="pause_menu" parent="." instance=ExtResource("3_n75gg")]

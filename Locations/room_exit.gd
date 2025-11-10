@@ -6,6 +6,8 @@ var map = %WorldMap
 var player = %Player
 @onready
 var confirmation_system = %PlayerConfirm
+@onready
+var time_slot_manager = %TimeSlotManager
 
 
 func _ready():

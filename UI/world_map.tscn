@@ -119,8 +119,16 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vv781")
 layout_mode = 1
 offset_right = 99.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Time of day: "
+
+[node name="DayLabel" type="Label" parent="Map"]
+layout_mode = 1
+offset_left = 415.0
+offset_right = 563.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 24
+text = "Day:"
 
 [node name="Confirmation" type="Control" parent="."]
 unique_name_in_owner = true

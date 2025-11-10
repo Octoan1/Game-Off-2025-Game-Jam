@@ -16,12 +16,14 @@ var map_exit = %Confirmation
 var time_slot_manager = %TimeSlotManager
 @onready
 var time_label = get_node("Map/TimeLabel")
+@onready
+var day_label = get_node("Map/DayLabel")
 
 var location
 
 func _ready():
 	self.hide()
-	update_time_label()
+	update_time_labels()
 	confirmation_system.connect("confirm_signal", confirmed)
 	confirmation_system.connect("cancel_signal", cancelled)
 	map_exit.connect("confirm_signal", confirmed_on_map)
@@ -54,7 +56,7 @@ func up_button_pressed() -> void:
 func confirmed():
 	self.show()
 	time_slot_manager.time_update()
-	update_time_label()
+	update_time_labels()
 	emit_signal("confirmation")
 
 # checks if the player cancels leaving an area
@@ -80,5 +82,7 @@ func cancelled_on_map():
 	map_exit.hide()
 
 # updates the time text at the top of the map
-func update_time_label():
+func update_time_labels():
 	time_label.text = "Time of day: " + time_slot_manager.get_time_text()
+	day_label.text = "Day: " + str(time_slot_manager.get_day())
+	

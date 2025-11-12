@@ -7,7 +7,7 @@ func _ready():
 	$ButtonBox/ResumeButton.connect("b_pressed", Callable(self, "_on_resume_pressed"))
 	$ButtonBox/OptionsButton.connect("b_pressed", Callable(self, "_on_options_pressed"))
 	$ButtonBox/QuitButton.connect("b_pressed", Callable(self, "_on_quit_pressed"))
-	#%SettingsPanel.hide()
+	#SettingsPanel.hide()
 	hide()  # start hidden
 
 func _process(_delta):
@@ -28,7 +28,7 @@ func _pause_game():
 
 func _resume_game():
 	get_tree().paused = false
-	#%SettingsPanel.hide()
+	SettingsPanel.hide()
 	hide()
 	
 func _on_resume_pressed():
@@ -37,7 +37,7 @@ func _on_resume_pressed():
 
 func _on_options_pressed():
 	print("Opening options menu...")
-	#%SettingsPanel.show()
+	SettingsPanel.show()
 
 func _on_quit_pressed():
 	print("Quitting game...")

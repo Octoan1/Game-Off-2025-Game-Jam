@@ -1,8 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://du4j02ppw21t1"]
+[gd_scene load_steps=5 format=3 uid="uid://du4j02ppw21t1"]
 
 [ext_resource type="Script" uid="uid://to7bw47nqihb" path="res://UI/main_menu/main_menu.gd" id="1_bxyur"]
 
 [sub_resource type="Theme" id="Theme_bxyur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxyur"]
+bg_color = Color(0.25929368, 0.25929374, 0.2592936, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osatk"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -62,7 +79,6 @@ text = "Quit"
 
 [node name="SettingsPanel" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(1000, 500)
 layout_mode = 1
 anchors_preset = 8
@@ -73,14 +89,22 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="SettingsPanel"]
+[node name="Panel" type="Panel" parent="SettingsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.26657522, 0.2665752, 0.2665752, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bxyur")
+
+[node name="Panel2" type="Panel" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 998.0
+offset_bottom = 67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_osatk")
 
 [node name="Control" type="Control" parent="SettingsPanel"]
 layout_mode = 1
@@ -106,6 +130,8 @@ anchors_preset = -1
 anchor_top = 0.135
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -263,10 +289,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -50.0
-offset_top = 6.0
-offset_right = -8.0
-offset_bottom = 50.0
+offset_left = -55.0
+offset_top = 12.0
+offset_right = -13.0
+offset_bottom = 56.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 26
 text = "X"

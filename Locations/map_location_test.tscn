@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://p872ilbintsy"]
+[gd_scene load_steps=10 format=3 uid="uid://p872ilbintsy"]
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
 [ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://Locations/room_exit.gd" id="2_8as44"]
-[ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="3_ip1s6"]
+[ext_resource type="Script" path="res://UI/world_map_function.gd" id="2_xre13"]
+[ext_resource type="PackedScene" path="res://UI/world_map.tscn" id="3_ip1s6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip1s6"]
 font_size = 80
@@ -24,6 +25,7 @@ material = SubResource("StandardMaterial3D_agu4g")
 [node name="WorldMap" parent="UI" instance=ExtResource("3_ip1s6")]
 unique_name_in_owner = true
 z_index = 1
+script = ExtResource("2_xre13")
 
 [node name="LeftRoomLabel" type="Label" parent="UI"]
 offset_left = 40.0

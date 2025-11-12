@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://bchxmlytwq2ik"]
 
-[ext_resource type="Script" uid="uid://efjw3wrxtmiq" path="res://ui/pause_menu/pause_menu.gd" id="1_avurv"]
-[ext_resource type="AudioStream" uid="uid://bost5lbpjl12g" path="res://ui/pause_menu/sounds/scroll_click2.wav" id="2_05uyy"]
-[ext_resource type="Script" uid="uid://b32ju65lh63cf" path="res://ui/pause_menu/animated_pause_button.gd" id="2_nwcfo"]
-[ext_resource type="AudioStream" uid="uid://bxf3cek8o26q7" path="res://ui/pause_menu/sounds/pause_sound.wav" id="5_npydk"]
+[ext_resource type="Script" uid="uid://efjw3wrxtmiq" path="res://UI/pause_menu/pause_menu.gd" id="1_avurv"]
+[ext_resource type="AudioStream" uid="uid://bost5lbpjl12g" path="res://UI/pause_menu/sounds/scroll_click2.wav" id="2_05uyy"]
+[ext_resource type="Script" uid="uid://b32ju65lh63cf" path="res://UI/pause_menu/animated_pause_button.gd" id="2_nwcfo"]
+[ext_resource type="AudioStream" uid="uid://bxf3cek8o26q7" path="res://UI/pause_menu/sounds/pause_sound.wav" id="5_npydk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdmo1"]
 

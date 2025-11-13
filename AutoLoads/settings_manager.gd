@@ -40,17 +40,18 @@ func apply_all_settings():
 
 func apply_audio_settings():
 	# Master
-	var master_db = linear_to_db(settings["audio"]["master_volume"])
+	#var master_db = linear_to_db(settings["audio"]["master_volume"])
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), master_db)
 
 	# Music
-	var music_db = linear_to_db(settings["audio"]["music_volume"] * settings["audio"]["master_volume"])
+	#var music_db = linear_to_db(settings["audio"]["music_volume"] * settings["audio"]["master_volume"])
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_db)
 
 	# SFX
-	var sfx_db = linear_to_db(settings["audio"]["sfx_volume"] * settings["audio"]["master_volume"])
+	#var sfx_db = linear_to_db(settings["audio"]["sfx_volume"] * settings["audio"]["master_volume"])
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), sfx_db)
-
+	pass
+	
 func apply_video_settings():
 	if settings["video"]["fullscreen"] :
 		# Currently doesn't work due to project settings

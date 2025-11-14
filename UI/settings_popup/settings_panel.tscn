@@ -266,4 +266,4 @@ text = "Save & Exit"
 [connection signal="value_changed" from="SettingsPanel/Control/ScrollContainer/VBoxContainer/HBoxContainer4/SFXVolume" to="SettingsPanel" method="_on_sfx_volume_value_changed"]
 [connection signal="toggled" from="SettingsPanel/Control/ScrollContainer/VBoxContainer/HBoxContainer/Fullscreen" to="SettingsPanel" method="_on_fullscreen_toggled"]
 [connection signal="pressed" from="SettingsPanel/Control/CloseSettingsButton" to="." method="hide"]
-[connection signal="pressed" from="SettingsPanel/Control/CloseSettingsButton" to="SettingsPanel/Control/CloseSettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/Control/CloseSettingsButton" to="SettingsPanel" method="_on_close_settings_button_pressed"]

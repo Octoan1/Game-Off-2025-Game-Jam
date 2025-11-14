@@ -23,7 +23,7 @@ func load_settings():
 			for key in settings[section].keys():
 				settings[section][key] = cfg.get_value(section, key, settings[section][key])
 				print(settings[section][key])
-	emit_signal("update_settings")
+	#emit_signal("update_settings")
 
 func save_settings():
 	print("saving settings...")
@@ -65,4 +65,7 @@ func _on_setting_changed(category: String, key: String, value: Variant):
 	if settings.has(category) and settings[category].has(key):
 		settings[category][key] = value
 		print("Setting changed:", category, key, value)
-		save_settings()
+		
+func _on_save_settings():
+	save_settings()
+	pass

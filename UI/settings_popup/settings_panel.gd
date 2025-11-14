@@ -6,7 +6,7 @@ extends Control
 @onready var fullscreen: CheckBox = $Control/ScrollContainer/VBoxContainer/HBoxContainer/Fullscreen
 
 signal setting_changed(category: String, key: String, value: Variant)
-
+signal save_settings
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +16,7 @@ func _ready() -> void:
 	sfx_volume.value = SettingsManager.settings["audio"]["sfx_volume"]
 	fullscreen.button_pressed = SettingsManager.settings["video"]["fullscreen"]
 	connect("setting_changed", Callable(SettingsManager, "_on_setting_changed"))
+	connect("save_settings", Callable(SettingsManager, "_on_save_settings"))
 	pass # Replace with function body.
 
 
@@ -43,4 +44,9 @@ func _on_sfx_volume_value_changed(value: float) -> void:
 
 func _on_fullscreen_toggled(toggled_on: bool) -> void:
 	emit_signal("setting_changed", "video", "fullscreen", toggled_on)
+	pass # Replace with function body.
+
+
+func _on_close_settings_button_pressed() -> void:
+	emit_signal("save_settings")
 	pass # Replace with function body.

@@ -1,6 +1,25 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cpumq5iyl8osf"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cpumq5iyl8osf"]
 
+[ext_resource type="Texture2D" uid="uid://cn6qsp3k77k6r" path="res://Locations/Tiles/grayscale_tiles.png" id="1_mdqiu"]
 [ext_resource type="Texture2D" uid="uid://craobi82ajgcx" path="res://Locations/Tiles/wall_and_floor.png" id="1_wnn8y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbf3v"]
+texture = ExtResource("1_mdqiu")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mdqiu"]
 texture = ExtResource("1_wnn8y")
@@ -11,3 +30,4 @@ texture = ExtResource("1_wnn8y")
 [resource]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_mdqiu")
+sources/0 = SubResource("TileSetAtlasSource_jbf3v")

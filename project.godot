@@ -17,7 +17,9 @@ config/icon="uid://dqvtobb0xsh5h"
 
 [autoload]
 
+SettingsManager="*res://AutoLoads/settings_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SettingsPanel="*res://UI/settings_popup/settings_panel.tscn"
 
 [dialogue_manager]
 

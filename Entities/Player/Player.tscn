@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cy3jdwwrf5650" path="res://Entities/Player/player.png" id="2_ww0jn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
-radius = 2.142857
+radius = 1.2936263
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_e5kic")
@@ -13,8 +13,8 @@ script = ExtResource("1_e5kic")
 texture = ExtResource("2_ww0jn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(3.5762787e-07, 2.9999995)
-scale = Vector2(0.024509804, 0.043749996)
+position = Vector2(5.684342e-14, 8.499999)
+scale = Vector2(0.024509804, 0.021874998)
 polygon = PackedVector2Array(-254.99998, -300, -254.99998, 300, 255, 300, 255, -300)
 
 [node name="Direction" type="Marker2D" parent="."]
@@ -24,6 +24,6 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
-position = Vector2(0, 2.9999998)
+position = Vector2(0, 8.999999)
 scale = Vector2(7, 7)
 shape = SubResource("CircleShape2D_ww0jn")

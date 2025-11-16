@@ -1,0 +1,37 @@
+~ start
+
+# --- Configuration ---
+# 1. Define the NPC this dialogue file is for. This must match the key used in GManager.
+
+# 2. Ensure the NPC's data is initialized in the global manager before conversation starts.
+do DialogueStateManager.initialize_npc("Greg") 
+
+Greg: Hey, the festival committee wants me to give away this old music radio. What do you think about the noise it makes?
+
+- [Make Greg Angry] (Transactional Route)
+	# Inflict Angry score on the specific NPC
+	do DialogueStateManager.add_emotion_score("Greg", "Angry", 5) 
+	Greg: Whoa! That's harsh! I'm not dealing with you right now.
+- [Make Greg Fearful] (Optimal Route)
+	# Inflict Fearful score
+	do DialogueStateManager.add_emotion_score("Greg", "Fearful", 4)
+	Greg: Okay, okay! Don't look at me like that! I'll do whatever you say.
+- [Make Greg Sad] (No Progression)
+	# Inflict Sad score
+	do DialogueStateManager.add_emotion_score("Greg", "Sad", 2)
+	Greg: Yeah, I guess so... that's really depressing.
+
+
+Greg: So, what should I actually do with this radio now?
+- [Choose an encouraging, Happy option]
+	# Inflict a small Happy score
+	do DialogueStateManager.add_emotion_score("Greg", "Happy", 1)
+	Greg: You know, you're right! You always look on the bright side.
+- [Choose an intimidating, Fearful option]
+	# Inflict a high Fearful score
+	do DialogueStateManager.add_emotion_score("Greg", "Fearful", 5)
+	Greg: That's a huge gamble, but maybe you're right... I'm terrified to do it, though.
+
+do DialogueStateManager.determine_highest_emotion("Greg")
+{{DialogueStateManager.npc_data["Greg"]["current_emotion"]}}
+=> END

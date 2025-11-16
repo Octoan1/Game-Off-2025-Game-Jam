@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_50h31"]
 [ext_resource type="PackedScene" uid="uid://s88m3mdvusde" path="res://Entities/Wall/wall.tscn" id="2_och5p"]
-[ext_resource type="PackedScene" uid="uid://bchxmlytwq2ik" path="res://UI/pause_menu/pause_menu.tscn" id="3_n75gg"]
-[ext_resource type="PackedScene" uid="uid://b5514kb3ymx26" path="res://Entities/NPC/npc.tscn" id="4_xvcnp"]
+[ext_resource type="PackedScene" uid="uid://bchxmlytwq2ik" path="res://ui/pause_menu/pause_menu.tscn" id="3_n75gg"]
+[ext_resource type="PackedScene" uid="uid://b5514kb3ymx26" path="res://Entities/NPC #1/npc_one.tscn" id="4_xvcnp"]
 
 [node name="Main" type="Node2D"]
 
@@ -17,3 +17,5 @@ scale = Vector2(7.68, 7.68)
 [node name="pause_menu" parent="." instance=ExtResource("3_n75gg")]
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_xvcnp")]
+position = Vector2(815.00006, 494)
+scale = Vector2(0.032885954, 0.03288596)

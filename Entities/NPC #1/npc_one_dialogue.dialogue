@@ -1,7 +1,12 @@
 ~ start
 
+# brings in npc state, which holds npc.name and npc.emotion
+
 # initializes the NPC by name into the system
 do DialogueStateManager.initialize_npc(npc.name, npc.emotion)
+
+# add some points to the emotional score that the npc is currently already in
+do DialogueStateManager.add_emotion_score(npc.name, npc.emotion, 2)
 
 {{npc.name}}: Hey, the festival committee wants me to give away this old music radio. What do you think about the noise it makes?
 
@@ -23,18 +28,20 @@ do DialogueStateManager.initialize_npc(npc.name, npc.emotion)
 - [Choose an encouraging, Happy option]
 	# Inflict a small Happy score
 	do DialogueStateManager.add_emotion_score(npc.name, "Happy", 1)
-	{{npc.name}}: You always look on the bright side!
-- [Choose an intimidating, Fearful option]
+	{{npc.name}}: You are so nice!
+- [Up the glock on him]
 	# Inflict a high Fearful score
-	do DialogueStateManager.add_emotion_score(npc.name, "Fearful", 4)
-	{{npc.name}}: That's a huge gamble.
-
+	do DialogueStateManager.add_emotion_score(npc.name, "Fearful", 8)
+	{{npc.name}}: Chill out gang, you got it king.
+ 
 set npc.emotion = DialogueStateManager.determine_highest_emotion(npc.name)
 
 if npc.emotion == "Fearful":
-	{{npc.name}}: [wave]YOU GET THE MUSIC RADIO![/wave]
+	Greg hands over the music radio.
+	[wave]YOU GOT THE MUSIC RADIO![/wave]
 else:
-	{{npc.name}}: you get nothing!
+	{{npc.name}}: Imma keep the radio for a bit but I'll think about it lil bro.
 
-do DialogueStateManager.reset_scores(npc.name)
+# TODO: resetting npc scores for testing, usually wouldn't reset until the end of the day
+do DialogueStateManager.reset_npc(npc.name)
 => END

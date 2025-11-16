@@ -9,6 +9,7 @@ const NPC_TEMPLATE = {
 	"current_emotion": ""
 }
 
+# sets up the disctionary in the data dictionary for each NPC
 func initialize_npc(npc_name: String, npc_emotion: String):
 	# Initializes data for a new NPC if it doesn't exist
 	if not npc_data.has(npc_name):
@@ -16,6 +17,8 @@ func initialize_npc(npc_name: String, npc_emotion: String):
 		npc_data[npc_name]["current_emotion"] = npc_emotion
 		print("Initialized data for NPC: " + npc_name + ", " + npc_emotion)
 
+# adds an amount of score (int) to a specific emotion
+# send in the name. emotion, and amount
 func add_emotion_score(npc_name: String, emotion_name: String, amount: int):
 	var scores = npc_data[npc_name]["emotion_scores"]
 	scores[emotion_name] += amount
@@ -39,13 +42,14 @@ func determine_highest_emotion(npc_name: String):
 			# TODO: TIEBREAKER?
 			highest_emotion = "Mixed"
 	
-	# Store the final result in the NPC's data for printing in the dialogue
+	# Store the final result in the NPC's data
 	npc_data[npc_name]["current_emotion"] = highest_emotion
 	print("The emotion with the highest amount of points is: " + highest_emotion)
 	
 	return highest_emotion
 
-
-func reset_scores(npc_name: String):
+# run this if you want to reset the npc (scores, emotion)
+func reset_npc(npc_name: String):
 	# Reset scores for the next conversation
 	npc_data[npc_name]["emotion_scores"] = NPC_TEMPLATE["emotion_scores"].duplicate(true)
+	npc_data[npc_name]["current_emotion"] = ""

@@ -6,7 +6,8 @@
 do DialogueStateManager.initialize_npc(npc.name, npc.emotion)
 
 # add some points to the emotional score that the npc is currently already in
-do DialogueStateManager.add_emotion_score(npc.name, npc.emotion, 2)
+if npc.emotion != "":
+	do DialogueStateManager.add_emotion_score(npc.name, npc.emotion, 2)
 
 {{npc.name}}: Hey, the festival committee wants me to give away this old music radio. What do you think about the noise it makes?
 

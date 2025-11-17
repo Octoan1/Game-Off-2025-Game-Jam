@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=10 format=3 uid="uid://p872ilbintsy"]
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
@@ -24,6 +25,7 @@ material = SubResource("StandardMaterial3D_agu4g")
 
 [node name="WorldMap" parent="UI" instance=ExtResource("3_ip1s6")]
 unique_name_in_owner = true
+
 z_index = 1
 script = ExtResource("2_xre13")
 
@@ -58,6 +60,12 @@ offset_right = 1327.0
 offset_bottom = 1418.0
 text = "lower room"
 label_settings = SubResource("LabelSettings_ip1s6")
+
+[node name="PlayerConfirm" parent="UI" instance=ExtResource("2_xre13")]
+unique_name_in_owner = true
+
+[node name="TimeSlotManager" parent="UI" instance=ExtResource("3_08avn")]
+unique_name_in_owner = true
 
 [node name="Objects" type="Node" parent="."]
 

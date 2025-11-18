@@ -17,3 +17,5 @@ scale = Vector2(7.68, 7.68)
 [node name="pause_menu" parent="." instance=ExtResource("3_n75gg")]
 
 [node name="NPC Child Interactable Test" parent="." instance=ExtResource("4_xvcnp")]
+position = Vector2(544.99994, 458.99997)
+scale = Vector2(0.1, 0.1)

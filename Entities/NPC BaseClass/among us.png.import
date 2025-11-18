@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kuvwi1loj3ch"
-path="res://.godot/imported/IMG_0784_Original.jpg-74e61f4d13784e08eedcdf959c4643ce.ctex"
+uid="uid://4cmx77yegfc8"
+path="res://.godot/imported/among us.png-ace2922582c7f78a51ce319c138f032a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IMG_0784_Original.jpg"
-dest_files=["res://.godot/imported/IMG_0784_Original.jpg-74e61f4d13784e08eedcdf959c4643ce.ctex"]
+source_file="res://Entities/NPC BaseClass/among us.png"
+dest_files=["res://.godot/imported/among us.png-ace2922582c7f78a51ce319c138f032a.ctex"]
 
 [params]
 

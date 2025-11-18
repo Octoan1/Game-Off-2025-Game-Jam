@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://w6eh42straoo"]
+
+[ext_resource type="PackedScene" uid="uid://b5514kb3ymx26" path="res://Entities/NPC BaseClass/npc_class.tscn" id="1_2rsk2"]
+[ext_resource type="Resource" uid="uid://bhcpv7l0k64i4" path="res://Entities/NPC #1 For Testing/npc_example_dialogue.dialogue" id="2_r528p"]
+
+[node name="Sprite2D" instance=ExtResource("1_2rsk2")]
+
+[node name="Actionable" parent="." index="0"]
+dialogue_resource = ExtResource("2_r528p")

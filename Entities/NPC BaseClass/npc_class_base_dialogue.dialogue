@@ -1,0 +1,63 @@
+~ start
+
+# brings in npc state, which holds npc.name and npc.emotion
+
+# initializes the NPC by name into the system
+do DialogueStateManager.initialize_npc(npc.name, npc.emotion)
+
+# add some points to the emotional score that the npc is currently already in
+# !hard coded point values throughout this code as placeholders!
+do DialogueStateManager.add_emotion_score(npc.name, npc.emotion, 2)
+
+# basic structure of how to have the NPC speak
+{{npc.name}}: Hello, I am {{npc.name}} and I am speaking
+
+# sample interactions to copy and paste to make conversations flow
+- [Make {{npc.name}} Angry]
+	# Inflict Angry score
+	do DialogueStateManager.add_emotion_score(npc.name, "Angry", 1) 
+	{{npc.name}}: You made me angry
+- [Make {{npc.name}} Fearful]
+	# Inflict Fearful score
+	do DialogueStateManager.add_emotion_score(npc.name, "Fearful", 1)
+	{{npc.name}}: You made me fearful
+- [Make {{npc.name}} Sad]
+	# Inflict Sad score
+	do DialogueStateManager.add_emotion_score(npc.name, "Sad", 1)
+	{{npc.name}}: You made me sad
+- [Make {{npc.name}} Happy]
+	# Inflict Sad score
+	do DialogueStateManager.add_emotion_score(npc.name, "Happy", 1)
+	{{npc.name}}: You made me happy
+
+# basic structuring copied to make the sample convo more full
+{{npc.name}}: Hello, I am {{npc.name}} and I am speaking again
+- [Make {{npc.name}} Angry]
+	# Inflict Angry score
+	do DialogueStateManager.add_emotion_score(npc.name, "Angry", 1) 
+	{{npc.name}}: You made me angry
+- [Make {{npc.name}} Fearful]
+	# Inflict Fearful score
+	do DialogueStateManager.add_emotion_score(npc.name, "Fearful", 1)
+	{{npc.name}}: You made me fearful
+- [Make {{npc.name}} Sad]
+	# Inflict Sad score
+	do DialogueStateManager.add_emotion_score(npc.name, "Sad", 1)
+	{{npc.name}}: You made me sad
+- [Make {{npc.name}} Happy]
+	# Inflict Sad score
+	do DialogueStateManager.add_emotion_score(npc.name, "Happy", 1)
+	{{npc.name}}: You made me happy
+ 
+# determine what the "winning emotion is for the npc and set it as the npc's emotion
+set npc.emotion = DialogueStateManager.determine_highest_emotion(npc.name)
+
+# sample end of conversation result text
+if npc.emotion == "Happy":
+	[wave]{{npc.name}} is happy[/wave]
+else:
+	{{npc.name}} is not happy
+
+#TODO resetting npc scores for testing, keep if needed
+do DialogueStateManager.reset_npc(npc.name)
+=> END

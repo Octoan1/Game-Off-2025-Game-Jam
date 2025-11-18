@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bhcpv7l0k64i4"
+path="res://.godot/imported/npc_example_dialogue.dialogue-4bf233a248da4e1c48e5d9f22f1846b2.tres"
+
+[deps]
+
+source_file="res://Entities/NPC #1 For Testing/npc_example_dialogue.dialogue"
+dest_files=["res://.godot/imported/npc_example_dialogue.dialogue-4bf233a248da4e1c48e5d9f22f1846b2.tres"]
+
+[params]
+
+defaults=true

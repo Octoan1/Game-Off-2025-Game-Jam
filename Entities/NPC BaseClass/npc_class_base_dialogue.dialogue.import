@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dltbbdclhirai"
+path="res://.godot/imported/npc_class_base_dialogue.dialogue-2987969f8d5cb7e7d281bb68d24c99ab.tres"
+
+[deps]
+
+source_file="res://Entities/NPC BaseClass/npc_class_base_dialogue.dialogue"
+dest_files=["res://.godot/imported/npc_class_base_dialogue.dialogue-2987969f8d5cb7e7d281bb68d24c99ab.tres"]
+
+[params]
+
+defaults=true

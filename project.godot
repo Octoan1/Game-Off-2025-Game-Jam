@@ -28,7 +28,9 @@ runtime/balloon_path="res://Dialogue/balloon.tscn"
 
 [display]
 
+
 window/stretch/mode="canvas_items"
+
 
 [editor_plugins]
 

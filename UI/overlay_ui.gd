@@ -1,0 +1,24 @@
+extends Control
+
+@onready
+var time_label = get_node("TimeLabel")
+@onready
+var day_label = get_node("DayLabel")
+@onready
+var area_label = get_node("AreaLabel")
+@onready
+var time_slot_manager = %TimeSlotManager
+@onready
+var confirmation_system = %PlayerConfirm
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	update_time_labels()
+	confirmation_system.connect("confirm_signal", update_time_labels)
+
+func update_time_labels():
+	time_label.text = "Time of day: " + time_slot_manager.get_time_text()
+	day_label.text = "Day: " + str(time_slot_manager.get_day())
+	area_label.text = "Location: " + "Atrium"

@@ -1,12 +1,11 @@
-
-[gd_scene load_steps=11 format=3 uid="uid://p872ilbintsy"]
+[gd_scene load_steps=12 format=3 uid="uid://p872ilbintsy"]
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
 [ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://Locations/room_exit.gd" id="2_8as44"]
 [ext_resource type="PackedScene" uid="uid://c8bevoq43dhut" path="res://UI/player_confirm.tscn" id="2_xre13"]
 [ext_resource type="PackedScene" uid="uid://d4d06jcqnl5a5" path="res://UI/time_slot_manager.tscn" id="3_08avn"]
 [ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="3_ip1s6"]
-
+[ext_resource type="PackedScene" uid="uid://cqeyjh35es28n" path="res://UI/overlay_ui.tscn" id="4_r8tfo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip1s6"]
 font_size = 80
@@ -24,13 +23,6 @@ material = SubResource("StandardMaterial3D_agu4g")
 [node name="MapLocationTest" type="Node2D"]
 
 [node name="UI" type="Node" parent="."]
-
-[node name="WorldMap" parent="UI" instance=ExtResource("3_ip1s6")]
-unique_name_in_owner = true
-
-z_index = 1
-script = ExtResource("2_xre13")
-
 
 [node name="LeftRoomLabel" type="Label" parent="UI"]
 offset_left = 40.0
@@ -64,10 +56,17 @@ offset_bottom = 1418.0
 text = "lower room"
 label_settings = SubResource("LabelSettings_ip1s6")
 
-[node name="PlayerConfirm" parent="UI" instance=ExtResource("2_xre13")]
+[node name="TimeSlotManager" parent="UI" instance=ExtResource("3_08avn")]
 unique_name_in_owner = true
 
-[node name="TimeSlotManager" parent="UI" instance=ExtResource("3_08avn")]
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="OverlayUI" parent="UI/CanvasLayer" instance=ExtResource("4_r8tfo")]
+
+[node name="PlayerConfirm" parent="UI/CanvasLayer" instance=ExtResource("2_xre13")]
+unique_name_in_owner = true
+
+[node name="WorldMap" parent="UI/CanvasLayer" instance=ExtResource("3_ip1s6")]
 unique_name_in_owner = true
 
 [node name="Objects" type="Node" parent="."]

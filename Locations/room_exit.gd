@@ -20,13 +20,8 @@ func _ready():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Body entered: ", body.name)
-	print("Map node: ", map)
-	print("Confirmation node: ", confirmation_system)
 	if body.name == "Player":
 		confirmation_system.show()
-		confirmation_system.position.x = player.position.x - 560
-		confirmation_system.position.y = player.position.y - 200
 		player.can_move = false
 		
 
@@ -53,5 +48,4 @@ func player_released():
 	player.can_move = true
 
 func show_map():
-	map.position = player.position
 	map.show()

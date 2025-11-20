@@ -1,5 +1,14 @@
 extends Node
 
+@onready
+var atrium = get_node("/root/FullMapTest/Objects/Atrium")
+@onready
+var living = get_node("/root/FullMapTest/Objects/Living")
+@onready
+var wing_a = get_node("/root/FullMapTest/Objects/WingA")
+@onready
+var wing_b = get_node("/root/FullMapTest/Objects/WingB")
+
 var time = 1
 var day = 1
 
@@ -24,6 +33,17 @@ func get_time_text() -> String:
 		return "Evening"
 	else:
 		return "Night"
+
+func get_location() -> String:
+	if(atrium.visible == true):
+		return "Atrium"
+	if(living.visible == true):
+		return "Living Room"
+	if(wing_a.visible == true):
+		return "Wing A"
+	if(wing_b.visible == true):
+		return "Wing B"
+	return "Atrium"
 
 # This funciton increments the time slot by 1, and 
 # checks to update the day counter and reset the time back to morning (1)

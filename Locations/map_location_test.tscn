@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://p872ilbintsy"]
+[gd_scene load_steps=13 format=3 uid="uid://p872ilbintsy"]
 
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="1_agu4g"]
-[ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://Locations/room_exit.gd" id="2_8as44"]
+[ext_resource type="Script" uid="uid://br6658nwt6xu" path="res://UI/room_exit.gd" id="2_8as44"]
 [ext_resource type="PackedScene" uid="uid://c8bevoq43dhut" path="res://UI/player_confirm.tscn" id="2_xre13"]
 [ext_resource type="PackedScene" uid="uid://d4d06jcqnl5a5" path="res://UI/time_slot_manager.tscn" id="3_08avn"]
 [ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="3_ip1s6"]
 [ext_resource type="PackedScene" uid="uid://cqeyjh35es28n" path="res://UI/overlay_ui.tscn" id="4_r8tfo"]
+[ext_resource type="PackedScene" uid="uid://l84s4dbvitrt" path="res://UI/room_exit.tscn" id="6_7oggm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip1s6"]
 font_size = 80
@@ -131,15 +132,8 @@ shape = SubResource("RectangleShape2D_8as44")
 scale = Vector2(20, 20)
 mesh = SubResource("QuadMesh_ip1s6")
 
-[node name="RoomExit" type="Node2D" parent="Objects/SampleRoomLeft"]
+[node name="RoomExit" parent="Objects/SampleRoomLeft" instance=ExtResource("6_7oggm")]
 position = Vector2(6.9999995, 508.00003)
-scale = Vector2(1, 14.56)
-script = ExtResource("2_8as44")
-
-[node name="Area2D" type="Area2D" parent="Objects/SampleRoomLeft/RoomExit"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomLeft/RoomExit/Area2D"]
-shape = SubResource("RectangleShape2D_agu4g")
 
 [node name="SampleRoomRight" type="Node2D" parent="Objects"]
 position = Vector2(1689, 0)
@@ -336,8 +330,6 @@ script = ExtResource("2_8as44")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/SampleRoomUpper/RoomExit/Area2D"]
 shape = SubResource("RectangleShape2D_agu4g")
 
-[connection signal="area_entered" from="Objects/SampleRoomLeft/RoomExit/Area2D" to="Objects/SampleRoomLeft/RoomExit" method="area_entered"]
-[connection signal="body_entered" from="Objects/SampleRoomLeft/RoomExit/Area2D" to="Objects/SampleRoomLeft/RoomExit" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="Objects/SampleRoomRight/RoomExit/Area2D" to="Objects/SampleRoomRight/RoomExit" method="area_entered"]
 [connection signal="body_entered" from="Objects/SampleRoomRight/RoomExit/Area2D" to="Objects/SampleRoomRight/RoomExit" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="Objects/SampleRoomLower/RoomExit/Area2D" to="Objects/SampleRoomLower/RoomExit" method="area_entered"]

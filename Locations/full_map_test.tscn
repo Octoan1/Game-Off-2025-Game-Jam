@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://2v3jduk1hbn5"]
+[gd_scene load_steps=12 format=3 uid="uid://2v3jduk1hbn5"]
 
 [ext_resource type="PackedScene" uid="uid://d4d06jcqnl5a5" path="res://UI/time_slot_manager.tscn" id="1_cnp3b"]
 [ext_resource type="PackedScene" uid="uid://cqeyjh35es28n" path="res://UI/overlay_ui.tscn" id="2_viw4b"]
 [ext_resource type="PackedScene" uid="uid://c8bevoq43dhut" path="res://UI/player_confirm.tscn" id="3_rcxtk"]
 [ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="4_2oxii"]
+[ext_resource type="PackedScene" uid="uid://bchxmlytwq2ik" path="res://UI/pause_menu/pause_menu.tscn" id="5_drqay"]
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="5_viw4b"]
 [ext_resource type="PackedScene" uid="uid://dsihgieetyqid" path="res://Locations/atrium.tscn" id="6_333q0"]
 [ext_resource type="PackedScene" uid="uid://bo3ym12jh757v" path="res://Locations/living.tscn" id="7_drqay"]
@@ -27,6 +28,8 @@ unique_name_in_owner = true
 
 [node name="WorldMap" parent="UI/CanvasLayer" instance=ExtResource("4_2oxii")]
 unique_name_in_owner = true
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("5_drqay")]
 
 [node name="Objects" type="Node" parent="."]
 

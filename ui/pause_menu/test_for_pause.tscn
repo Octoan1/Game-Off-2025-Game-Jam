@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc8i3uaxe3ao1"]
+
+[ext_resource type="PackedScene" uid="uid://bchxmlytwq2ik" path="res://UI/pause_menu/pause_menu.tscn" id="1_k8gt6"]
+
+[node name="TestForPause" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 661.0
+color = Color(0.54258215, 0.0007082921, 0.23338497, 1)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_k8gt6")]

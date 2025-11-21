@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://s88m3mdvusde"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eygx1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eygx1"]
+
+[node name="Wall" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_eygx1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_eygx1")

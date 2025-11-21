@@ -1,0 +1,321 @@
+[gd_scene load_steps=14 format=3 uid="uid://bchxmlytwq2ik"]
+
+[ext_resource type="Script" uid="uid://efjw3wrxtmiq" path="res://UI/pause_menu/pause_menu.gd" id="1_avurv"]
+[ext_resource type="AudioStream" uid="uid://bost5lbpjl12g" path="res://UI/pause_menu/sounds/scroll_click2.wav" id="2_05uyy"]
+[ext_resource type="Script" uid="uid://b32ju65lh63cf" path="res://UI/pause_menu/animated_pause_button.gd" id="2_nwcfo"]
+[ext_resource type="AudioStream" uid="uid://bxf3cek8o26q7" path="res://UI/pause_menu/sounds/pause_sound.wav" id="5_npydk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdmo1"]
+
+[sub_resource type="Animation" id="Animation_nwcfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.353256, 1.353256, 1.353256, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_05uyy"]
+resource_name = "hover_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0012258951, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.353, 1.353, 1.353, 0), Color(1.353256, 1.353256, 1.353256, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.45, 1.45)]
+}
+
+[sub_resource type="Animation" id="Animation_p81d2"]
+resource_name = "hover_out"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.353256, 1.353256, 1.353256, 1), Color(1.353256, 1.353256, 1.353256, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.45, 1.45), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nc7s"]
+_data = {
+&"RESET": SubResource("Animation_nwcfo"),
+&"hover_in": SubResource("Animation_05uyy"),
+&"hover_out": SubResource("Animation_p81d2")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcfo"]
+
+[sub_resource type="Animation" id="Animation_npydk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_avurv"]
+resource_name = "fade_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ap7o"]
+_data = {
+&"RESET": SubResource("Animation_npydk"),
+&"fade_in": SubResource("Animation_avurv")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avurv")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5294118)
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+position = Vector2(489.00003, 646)
+scale = Vector2(3.1333342, 5.3666654)
+color = Color(0, 0, 0, 0.79607844)
+polygon = PackedVector2Array(0, 0.5, -60, 0.5, -120, -120.5, -60, -120.5)
+uv = PackedVector2Array(-247.89987, -124.1698, -187.89987, 24.012024, -117.89987, 24.012024, -188.80899, -127.80617)
+
+[node name="ButtonBox" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Control/ButtonBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.157
+anchor_right = 0.99500006
+anchor_bottom = 0.29000002
+offset_top = 0.26399994
+offset_right = 1.7598877
+offset_bottom = 7.0799866
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
+script = ExtResource("2_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="Control/ButtonBox/ResumeButton"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25882354, 0.6431373, 0.94509804, 0.58431375)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ButtonBox/ResumeButton"]
+layout_mode = 0
+offset_left = 189.0
+offset_right = 284.0
+offset_bottom = 61.999992
+
+[node name="Label" type="Label" parent="Control/ButtonBox/ResumeButton/CenterContainer"]
+layout_mode = 2
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ButtonBox/ResumeButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_2nc7s")
+}
+
+[node name="OptionsButton" type="Button" parent="Control/ButtonBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.147
+anchor_right = 0.99500006
+anchor_bottom = 0.29000002
+offset_top = 108.744
+offset_right = 1.7598877
+offset_bottom = 109.07999
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nwcfo")
+script = ExtResource("2_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="Control/ButtonBox/OptionsButton"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25858736, 0.64207804, 0.96178025, 0.58431375)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ButtonBox/OptionsButton"]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 6.0
+offset_right = 316.0
+offset_bottom = 60.0
+
+[node name="Label" type="Label" parent="Control/ButtonBox/OptionsButton/CenterContainer"]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ButtonBox/OptionsButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_2nc7s")
+}
+
+[node name="QuitButton" type="Button" parent="Control/ButtonBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.147
+anchor_right = 0.99500006
+anchor_bottom = 0.29000002
+offset_top = 210.744
+offset_right = 1.7598877
+offset_bottom = 211.07999
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
+script = ExtResource("2_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="Control/ButtonBox/QuitButton"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25858736, 0.64207804, 0.96178025, 0.58431375)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/ButtonBox/QuitButton"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 8.0
+offset_right = 336.0
+offset_bottom = 58.0
+
+[node name="Label" type="Label" parent="Control/ButtonBox/QuitButton/CenterContainer"]
+layout_mode = 2
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ButtonBox/QuitButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_2nc7s")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_6ap7o")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("5_npydk")
+
+[node name="ScrollClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_05uyy")
+volume_db = -3.265
+
+[connection signal="mouse_entered" from="Control/ButtonBox/ResumeButton" to="Control/ButtonBox/ResumeButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ButtonBox/ResumeButton" to="Control/ButtonBox/ResumeButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/ButtonBox/ResumeButton" to="Control/ButtonBox/ResumeButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="Control/ButtonBox/OptionsButton" to="Control/ButtonBox/OptionsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ButtonBox/OptionsButton" to="Control/ButtonBox/OptionsButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/ButtonBox/OptionsButton" to="Control/ButtonBox/OptionsButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="Control/ButtonBox/QuitButton" to="Control/ButtonBox/QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ButtonBox/QuitButton" to="Control/ButtonBox/QuitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/ButtonBox/QuitButton" to="Control/ButtonBox/QuitButton" method="_on_pressed"]

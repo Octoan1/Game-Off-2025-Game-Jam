@@ -1,0 +1,48 @@
+~ start
+
+# brings in npc state, which holds npc.name and npc.emotion
+
+# initializes the NPC by name into the system
+do DialogueStateManager.initialize_npc(npc.name, npc.emotion)
+
+# add some points to the emotional score that the npc is currently already in
+if npc.emotion != "":
+	do DialogueStateManager.add_emotion_score(npc.name, npc.emotion, 2)
+
+{{npc.name}}: Hey, the festival committee wants me to give away this old music radio. What do you think about the noise it makes?
+
+- [Make {{npc.name}} Angry] (Some Progression)
+	# Inflict Angry score
+	do DialogueStateManager.add_emotion_score(npc.name, "Angry", 5) 
+	{{npc.name}}: Whoa! That's harsh! I'm not dealing with you right now.
+- [Make {{npc.name}} Fearful] (Optimal Progression)
+	# Inflict Fearful score
+	do DialogueStateManager.add_emotion_score(npc.name, "Fearful", 4)
+	{{npc.name}}: Okay, okay! Don't look at me like that! I'll do whatever you say.
+- [Make {{npc.name}} Sad] (Little Progression)
+	# Inflict Sad score
+	do DialogueStateManager.add_emotion_score(npc.name, "Sad", 2)
+	{{npc.name}}: Yeah, I guess so... that's really depressing.
+
+
+{{npc.name}}: So, what should I actually do with this radio now?
+- [Choose an encouraging, Happy option]
+	# Inflict a small Happy score
+	do DialogueStateManager.add_emotion_score(npc.name, "Happy", 1)
+	{{npc.name}}: You are so nice!
+- [Up the glock on him]
+	# Inflict a high Fearful score
+	do DialogueStateManager.add_emotion_score(npc.name, "Fearful", 8)
+	{{npc.name}}: Chill out gang, you got it king.
+ 
+set npc.emotion = DialogueStateManager.determine_highest_emotion(npc.name)
+
+if npc.emotion == "Fearful":
+	Greg hands over the music radio.
+	[wave]YOU GOT THE MUSIC RADIO![/wave]
+else:
+	{{npc.name}}: Imma keep the radio for a bit but I'll think about it lil bro.
+
+# TODO: resetting npc scores for testing, usually wouldn't reset until the end of the day
+do DialogueStateManager.reset_npc(npc.name)
+=> END

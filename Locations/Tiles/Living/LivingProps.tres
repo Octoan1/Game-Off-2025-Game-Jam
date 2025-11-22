@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cyscbmno5l32d"]
+
+[ext_resource type="Texture2D" uid="uid://c67na78uh018g" path="res://Locations/Tiles/Living/table32.png" id="1_rssfa"]
+[ext_resource type="Texture2D" uid="uid://dxwpdsgad52k2" path="res://Locations/Tiles/Living/cracktable32.png" id="2_gdhee"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mnpl7"]
+texture = ExtResource("1_rssfa")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1ai1"]
+texture = ExtResource("2_gdhee")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_mnpl7")
+sources/1 = SubResource("TileSetAtlasSource_d1ai1")

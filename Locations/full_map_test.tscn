@@ -37,15 +37,21 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(-1241, -64)
+SPEED = 130.0
 
 [node name="Camera2D" type="Camera2D" parent="Objects/Player"]
+zoom = Vector2(3, 3)
 
 [node name="Atrium" parent="Objects" instance=ExtResource("6_333q0")]
 position = Vector2(-1264, -762)
 
 [node name="RoomExit" parent="Objects/Atrium" instance=ExtResource("7_ip885")]
-position = Vector2(19, 743)
-rotation = 1.5707964
+position = Vector2(640, 210)
+rotation = 3.1415927
+scale = Vector2(1, 30.335)
+
+[node name="RoomExit2" parent="Objects/Atrium" instance=ExtResource("7_ip885")]
+position = Vector2(-622, 190)
 scale = Vector2(1, 30.335)
 
 [node name="Living" parent="Objects" instance=ExtResource("7_drqay")]
@@ -54,11 +60,19 @@ position = Vector2(1698, -710)
 [node name="RoomExit" parent="Objects/Living" instance=ExtResource("7_ip885")]
 position = Vector2(71, 32)
 
+[node name="RoomExit2" parent="Objects/Living" instance=ExtResource("7_ip885")]
+position = Vector2(-757.00006, -156.99998)
+rotation = 1.5707964
+
 [node name="WingA" parent="Objects" instance=ExtResource("8_rtye5")]
 position = Vector2(-1175, 519)
 
 [node name="RoomExit" parent="Objects/WingA" instance=ExtResource("7_ip885")]
 position = Vector2(42, -31)
+
+[node name="RoomExit2" parent="Objects/WingA" instance=ExtResource("7_ip885")]
+position = Vector2(-129.99998, 907)
+rotation = 1.5707964
 
 [node name="WingB" parent="Objects" instance=ExtResource("9_2aqh6")]
 position = Vector2(1278, 431)

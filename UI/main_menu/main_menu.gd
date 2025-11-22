@@ -15,9 +15,9 @@ func _on_quit_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	# TODO: implement play
-	get_tree().change_scene_to_file("res://Locations/main.tscn")
+	get_tree().change_scene_to_file("res://Locations/full_map_test.tscn")
 	pass
+
 
 
 func _on_settings_pressed() -> void:

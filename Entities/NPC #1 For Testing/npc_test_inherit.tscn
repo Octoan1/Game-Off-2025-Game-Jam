@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5514kb3ymx26" path="res://Entities/NPC BaseClass/npc_class.tscn" id="1_2rsk2"]
 [ext_resource type="Resource" uid="uid://bhcpv7l0k64i4" path="res://Entities/NPC #1 For Testing/npc_example_dialogue.dialogue" id="2_r528p"]
-[ext_resource type="PackedScene" uid="uid://cs2gxhfcmn6aa" path="res://Quests/hamburger.tscn" id="3_c5rep"]
+[ext_resource type="PackedScene" uid="uid://cs2gxhfcmn6aa" path="res://Quests/Test Quest/hamburger.tscn" id="3_c5rep"]
 
 [node name="Sprite2D" instance=ExtResource("1_2rsk2")]
 

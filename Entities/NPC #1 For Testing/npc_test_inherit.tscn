@@ -15,4 +15,3 @@ item = ExtResource("3_c5rep")
 quest_name = "hamburger"
 quest_description = "get hamburger"
 reached_goal_text = "yay hamburger"
-reward = "hamburger"

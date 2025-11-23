@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs2gxhfcmn6aa"]
+
+[ext_resource type="Texture2D" uid="uid://dqvtobb0xsh5h" path="res://woah.png" id="1_adaxb"]
+[ext_resource type="Script" uid="uid://c178ffaxlnx1l" path="res://Quests/hamburger.gd" id="1_n7fjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7fjj"]
+size = Vector2(533, 617)
+
+[node name="Hamburger" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_n7fjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_adaxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_n7fjj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

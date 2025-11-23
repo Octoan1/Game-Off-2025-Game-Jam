@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8bevoq43dhut"]
 
-[ext_resource type="Script" uid="uid://cn15dwtocwsfp" path="res://UI/player_confirm.gd" id="1_hrxbo"]
+[ext_resource type="Script" uid="uid://cn15dwtocwsfp" path="res://ui/player_confirm.gd" id="1_hrxbo"]
 
 [node name="PlayerConfirm" type="Control"]
 z_index = 1

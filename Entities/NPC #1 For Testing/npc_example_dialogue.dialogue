@@ -5,6 +5,11 @@
 # initializes the NPC by name into the system
 do DialogueStateManager.initialize_npc(npc.name, npc.emotion)
 
+if quest1.quest_status == quest1.QuestStatus.reached_goal:
+	do quest1.finish_quest()
+	set GameManager.hamburger = true
+	{{npc.name}}: Hey, you finished the quest
+
 # add some points to the emotional score that the npc is currently already in
 if npc.emotion != "":
 	do DialogueStateManager.add_emotion_score(npc.name, npc.emotion, 2)

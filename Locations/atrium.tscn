@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://dsihgieetyqid"]
+[gd_scene load_steps=4 format=4 uid="uid://dsihgieetyqid"]
 
 [ext_resource type="TileSet" uid="uid://cpumq5iyl8osf" path="res://Locations/Tiles/test_tiles.tres" id="1_xm7dl"]
 [ext_resource type="Texture2D" uid="uid://d4ctkpbq88egt" path="res://Locations/Tiles/atrium_mockup.png" id="2_y8k71"]
+[ext_resource type="PackedScene" uid="uid://w6eh42straoo" path="res://Entities/NPC #1 For Testing/npc_test_inherit.tscn" id="3_xm7dl"]
 
 [node name="Atrium" type="Node2D"]
 
@@ -12,3 +13,10 @@ tile_set = ExtResource("1_xm7dl")
 [node name="BackgrounMockup" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_y8k71")
+
+[node name="Sprite2D" parent="." instance=ExtResource("3_xm7dl")]
+position = Vector2(-82, 423)
+scale = Vector2(0.053125024, 0.053125024)
+
+[node name="QuestSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(192, 416)

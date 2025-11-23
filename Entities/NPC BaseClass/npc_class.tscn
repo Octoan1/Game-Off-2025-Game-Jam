@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5514kb3ymx26"]
+[gd_scene load_steps=7 format=3 uid="uid://b5514kb3ymx26"]
 
 [ext_resource type="PackedScene" uid="uid://d4apw8qbtea6u" path="res://Dialogue/actionable.tscn" id="1_jn5u5"]
 [ext_resource type="Texture2D" uid="uid://4cmx77yegfc8" path="res://Entities/NPC BaseClass/among us.png" id="1_lau7h"]
 [ext_resource type="Script" uid="uid://cj3e3qy3fqoo" path="res://Entities/NPC BaseClass/npc_class_data.gd" id="2_bgvbr"]
 [ext_resource type="Resource" uid="uid://dltbbdclhirai" path="res://Entities/NPC BaseClass/npc_class_base_dialogue.dialogue" id="4_lau7h"]
+[ext_resource type="Script" uid="uid://dmw3jh7q3caeq" path="res://Quests/quest.gd" id="5_505fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn5u5"]
 size = Vector2(42.74079, 63.556717)
@@ -20,3 +21,15 @@ dialogue_resource = ExtResource("4_lau7h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
 scale = Vector2(25, 25)
 shape = SubResource("RectangleShape2D_jn5u5")
+
+[node name="Quest1" type="Node2D" parent="."]
+script = ExtResource("5_505fe")
+metadata/_custom_type_script = "uid://dmw3jh7q3caeq"
+
+[node name="Quest2" type="Node2D" parent="."]
+script = ExtResource("5_505fe")
+metadata/_custom_type_script = "uid://dmw3jh7q3caeq"
+
+[node name="Quest3" type="Node2D" parent="."]
+script = ExtResource("5_505fe")
+metadata/_custom_type_script = "uid://dmw3jh7q3caeq"

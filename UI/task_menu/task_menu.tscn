@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://wrwt12l4olr2"]
+
+[sub_resource type="GDScript" id="GDScript_fw2mn"]
+script/source = "extends Control
+
+@onready var container = $Panel/VBoxContainer
+
+func add_task(text: String) -> void:
+	var label := Label.new()
+	label.text = text
+	label.modulate = Color.GRAY
+	container.add_child(label)
+
+func remove_task(text: String) -> void:
+	for child in container.get_children():
+		if child is Label and child.text == text:
+			child.queue_free()
+			return
+
+func clear_tasks():
+	for child in container.get_children():
+		child.queue_free()
+		
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		if event.keycode == Key.KEY_P:
+			add_task(\"Testing\")
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfltv"]
+bg_color = Color(0.25430647, 0.24350697, 0.24091044, 0.73333335)
+
+[node name="TaskMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="Control" parent="."]
+anchors_preset = 0
+script = SubResource("GDScript_fw2mn")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vfltv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+text = "Task: Get pizza"

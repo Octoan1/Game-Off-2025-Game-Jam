@@ -35,3 +35,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			if actionables.size() > 0:
 				actionables[0].action()
 				return
+
+var task_list : Control = null
+var TaskListScene := preload("res://UI/task_menu/task_menu.tscn")
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		if event.keycode == KEY_T:
+			toggle_task_list()
+			
+func toggle_task_list():
+	if task_list:
+		task_list.visible = not task_list.visible
+	else:
+		task_list = TaskListScene.instantiate()
+		get_node("../CanvasLayer/UILayer").add_child(task_list)

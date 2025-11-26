@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var ui_layer: Control
 
 @export var SPEED : float = 300.0
 var can_move = true
@@ -49,4 +50,5 @@ func toggle_task_list():
 		task_list.visible = not task_list.visible
 	else:
 		task_list = TaskListScene.instantiate()
-		get_node("../CanvasLayer/UILayer").add_child(task_list)
+		if ui_layer:
+			ui_layer.add_child(task_list)

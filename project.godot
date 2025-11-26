@@ -23,7 +23,6 @@ SettingsPanel="*res://UI/settings_popup/settings_panel.tscn"
 DialogueStateManager="*res://AutoLoads/dialogue_state_manager.gd"
 GameManager="*res://AutoLoads/game_manager.gd"
 
-
 [dialogue_manager]
 
 runtime/balloon_path="res://Dialogue/balloon.tscn"

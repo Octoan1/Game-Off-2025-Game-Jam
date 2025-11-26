@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d4d06jcqnl5a5" path="res://UI/time_slot_manager.tscn" id="1_cnp3b"]
 [ext_resource type="PackedScene" uid="uid://cqeyjh35es28n" path="res://UI/overlay_ui.tscn" id="2_viw4b"]
 [ext_resource type="PackedScene" uid="uid://c8bevoq43dhut" path="res://UI/player_confirm.tscn" id="3_rcxtk"]
-[ext_resource type="PackedScene" uid="uid://bpw71rsl8qqjv" path="res://UI/world_map.tscn" id="4_2oxii"]
+[ext_resource type="PackedScene" uid="uid://b0fhmha5cplfk" path="res://UI/world_map.tscn" id="4_2oxii"]
 [ext_resource type="PackedScene" uid="uid://bchxmlytwq2ik" path="res://UI/pause_menu/pause_menu.tscn" id="5_drqay"]
 [ext_resource type="PackedScene" uid="uid://bv0avb3f4tef" path="res://Entities/Player/Player.tscn" id="5_viw4b"]
 [ext_resource type="PackedScene" uid="uid://dsihgieetyqid" path="res://Locations/atrium.tscn" id="6_333q0"]
@@ -33,10 +33,11 @@ unique_name_in_owner = true
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Player" parent="Objects" instance=ExtResource("5_viw4b")]
+[node name="Player" parent="Objects" node_paths=PackedStringArray("ui_layer") instance=ExtResource("5_viw4b")]
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(-1241, -64)
+ui_layer = NodePath("../../CanvasLayer/UILayer")
 SPEED = 130.0
 
 [node name="Camera2D" type="Camera2D" parent="Objects/Player"]
@@ -81,3 +82,12 @@ position = Vector2(1278, 431)
 position = Vector2(-42, -17)
 
 [node name="MapManager" type="Node" parent="Objects"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UILayer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
